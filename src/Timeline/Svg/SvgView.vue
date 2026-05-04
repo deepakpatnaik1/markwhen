@@ -10,7 +10,7 @@ import MarkersSvg, { type ShowMarkers } from "./MarkersSvg.vue";
 import { ranges } from "@/utilities/ranges";
 import type { Era } from "./types";
 import { useCollapseStore } from "../collapseStore";
-import { theme } from "@/config/palette";
+import { theme, rgb } from "@/config/palette";
 
 const nodeStore = useNodeStore();
 const collapseStore = useCollapseStore();
@@ -135,15 +135,15 @@ onMounted(() => setWidth());
     <svg:style>
       .svgDateText {
         font: bold {{ textFontSize }}px system-ui;
-        fill: rgb({{ dark ? theme.dark.svgFill : theme.light.svgFill }});
+        fill: rgb({{ dark ? rgb(theme.dark.svgFill) : rgb(theme.light.svgFill) }});
       }
       .svgEventTitle {
         font: normal {{ textFontSize }}px system-ui;
-        fill: rgb({{ dark ? theme.dark.svgText : theme.light.svgText }});
+        fill: rgb({{ dark ? rgb(theme.dark.svgText) : rgb(theme.light.svgText) }});
       }
       .svgMarkerText {
         font: normal {{ textFontSize }}px system-ui;
-        fill: rgb({{ dark ? theme.dark.svgFill : theme.light.svgFill }});
+        fill: rgb({{ dark ? rgb(theme.dark.svgFill) : rgb(theme.light.svgFill) }});
       }
     </svg:style>
     <MarkersSvg
@@ -170,7 +170,7 @@ onMounted(() => setWidth());
       :y="0"
       :width="era.width"
       :height="heightUnit * (nodeStore.height + 4)"
-      :fill="`rgba(${dark ? theme.dark.svgText : theme.light.svgText}, 0.1)`"
+      :fill="`rgba(${dark ? rgb(theme.dark.svgText) : rgb(theme.light.svgText)}, 0.1)`"
     ></rect>
   </svg>
 </template>

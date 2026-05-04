@@ -14,6 +14,7 @@ export const defaultSourceName = "default";
 export const useLpc = (listeners?: Parameters<typeof baseUseLpc>[0]) =>
   baseUseLpc(listeners, {
     initialAppStateFromMarkwhen: (state: MarkwhenState) => ({
+      isDark: true,
       colorMap: useColors(
         Array.isArray(state.parsed) ? state.parsed[0] : state.parsed
       ).value,

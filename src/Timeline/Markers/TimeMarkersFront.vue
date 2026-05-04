@@ -112,6 +112,6 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 <style scoped>
 .timeMarkerShader {
   z-index: -1;
-  background: linear-gradient(to bottom, rgb(var(--color-header-gradient-start)), 85%, rgba(var(--color-header-gradient-end)));
+  background: linear-gradient(to bottom, rgb(var(--color-header-gradient-start)), 85%, rgb(var(--color-header-gradient-start) / 0));
 }
 </style>

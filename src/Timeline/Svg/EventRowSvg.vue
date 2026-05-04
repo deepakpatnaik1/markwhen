@@ -3,7 +3,7 @@ import { toDateRange, type Event } from "@markwhen/parser";
 import type { DateTime } from "luxon";
 import { computed, ref } from "vue";
 import { useEventRefs } from "@/Timeline/Events/useEventRefs";
-import { theme } from "@/config/palette";
+import { theme, rgb } from "@/config/palette";
 import { useTimelineStore } from "@/Timeline/timelineStore";
 import { expand } from "@markwhen/parser";
 import { recurrenceLimit } from "@/Timeline/timelineStore";
@@ -97,8 +97,8 @@ defineExpose({
     v-for="left in expandedRecurrence"
     fill-rule="evenodd"
     :d="d(left)"
-    :fill="`rgba(${color || (dark ? theme.dark.svgText : theme.light.svgText)}, 0.8)`"
-    :stroke="`rgb(${color || (dark ? theme.dark.svgText : theme.light.svgText)})`"
+    :fill="`rgba(${color || (dark ? rgb(theme.dark.svgText) : rgb(theme.light.svgText))}, 0.8)`"
+    :stroke="`rgb(${color || (dark ? rgb(theme.dark.svgText) : rgb(theme.light.svgText))})`"
     :stroke-width="strokeWidth"
   ></path>
   <text :x="barsRightmostX" :y="barBottomY" ref="text"

@@ -21,7 +21,7 @@ import { useNodeStore } from "../useNodeStore";
 import { DateTime } from "luxon";
 import { granularities } from "../utilities/DateTimeDisplay";
 import type { Sourced } from "@/Markwhen/useLpc";
-import { theme } from "@/config/palette";
+import { theme, rgb } from "@/config/palette";
 
 const markersStore = useMarkersStore();
 const timelineStore = useTimelineStore();
@@ -44,7 +44,7 @@ const backgroundColor = computed(() => (tm: TimeMarker) => {
       // @ts-ignore
       weekday.weekday === 7
     ) {
-      return `rgba(${colors.value.gridBorder}, ${a})`;
+      return `rgba(${rgb(colors.value.gridBorder)}, ${a})`;
     }
   }
   return "unset";
@@ -64,7 +64,7 @@ const alpha = computed(
 
 const borderColor = computed(() => (tm: TimeMarker) => {
   const a = hovering.value(tm) ? 1 : (alpha.value(tm) - 0.3) * 2;
-  return `rgba(${colors.value.gridLine}, ${a})`;
+  return `rgba(${rgb(colors.value.gridLine)}, ${a})`;
 });
 
 const eras = computed(() => {
@@ -208,6 +208,6 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 <style>
 .timeMarkerShader {
   z-index: -1;
-  background: linear-gradient(to bottom, rgb(var(--color-header-gradient-start)), 85%, rgba(var(--color-header-gradient-end)));
+  background: linear-gradient(to bottom, rgb(var(--color-header-gradient-start)), 85%, rgb(var(--color-header-gradient-start) / 0));
 }
 </style>
