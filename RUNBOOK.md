@@ -104,6 +104,8 @@ Boss tests in browser.
 - Never report "done" without visually verifying in the browser.
 - ARCHITECTURE.md is the source of truth for blast radius. If it's wrong, fix it first — that's a REQ too.
 - No hacks. If the clean path doesn't work, diagnose why and fix it properly. A workaround that sidesteps the problem is not a solution — it's a deferral.
+- When the clean path fails, STOP. Do not attempt a fix. Diagnose the root cause. Bring the diagnosis to QA before writing any code. The diagnosis is a finding, not a code change — it informs the next plan.
+- Work in large huddles. When failure patterns start to repeat, recruit extra QA eyes from colleagues in the huddle. Self-appointment is encouraged — anyone who spots a blind spot owns flagging it.
 
 ## Design Principles
 
@@ -116,7 +118,8 @@ Boss tests in browser.
 | REQ | Description | Blast Radius | Plan | Status | Branch | Notes |
 |-----|-------------|--------------|------|--------|--------|-------|
 | 001 | Render fork with Tom Sawyer sample data | markwhenStore.ts (lines 123-127), useLpc.ts (line 17) | Fix parsed-array normalization in both CLI state entry points. Build, render via scripts/render.mjs, open in Safari. | SUCCESS | req-001-render-tom-sawyer | Merged to main. Pushed to GitHub. |
-| 002 | Centralize all colors into palette.ts config | 29 files (palette.ts new, 28 modified). All color definitions across .vue, .ts, .css, tailwind.config.js. | Create palette.ts as single source. CSS vars via applyTheme(). Semantic Tailwind tokens (th-*). Replace all dark: classes and inline RGB ternaries. | SUCCESS | req-002-centralize-colors-dark-mode | Color centralization only. Dark mode activation deferred to REQ-003. |
+| 002 | Centralize all colors into palette.ts config | 29 files (palette.ts new, 28 modified). All color definitions across .vue, .ts, .css, tailwind.config.js. | Create palette.ts as single source. CSS vars via applyTheme(). Semantic Tailwind tokens (th-*). Replace all dark: classes and inline RGB ternaries. | SUCCESS | req-002-centralize-colors-dark-mode | Color centralization only. Dark mode deferred to REQ-003. LATENT DEFECT: comma-separated RGB values generated invalid CSS with Tailwind's alpha syntax — all th-* tokens were non-functional. Light mode passed Boss's test only because browser default (white) matched light palette. Discovered during REQ-003 diagnosis. |
+| 003 | Dark mode activation + CSS format fix | palette.ts (60 values), useLpc.ts (1 line), 5 .vue files (inline adapters), App.vue (debug removal) | Space-separate all RGB values for Tailwind compatibility. Add rgb() helper for inline rgba() calls. Set isDark: true in initialAppStateFromMarkwhen. | SUCCESS | req-003-dark-mode-activation | Fixed latent REQ-002 defect + enabled dark mode. |
 
 ---
 
@@ -135,3 +138,4 @@ Boss tests in browser.
 |-----|---------|---------------|------------|
 | 001 | Open dist/index.html directly | Blank white screen, no errors | No state injected. App.vue v-if guard prevents Timeline mount. |
 | 001 | Inject __markwhen_initial_state | Expected: parsed-array crash | CLI state format incompatible with v1.4.5 useColors. |
+| 003 | isDark: true in useLpc.ts without format fix | Dark mode didn't render despite isDark=true in app state | Comma-separated RGB values in palette.ts generated invalid CSS: `rgb(39, 39, 42 / 1)`. Tailwind alpha syntax requires space-separated: `rgb(39 39 42 / 1)`. |
