@@ -144,3 +144,5 @@ Boss tests in browser.
 | 001 | Open dist/index.html directly | Blank white screen, no errors | No state injected. App.vue v-if guard prevents Timeline mount. |
 | 001 | Inject __markwhen_initial_state | Expected: parsed-array crash | CLI state format incompatible with v1.4.5 useColors. |
 | 003 | isDark: true in useLpc.ts without format fix | Dark mode didn't render despite isDark=true in app state | Comma-separated RGB values in palette.ts generated invalid CSS: `rgb(39, 39, 42 / 1)`. Tailwind alpha syntax requires space-separated: `rgb(39 39 42 / 1)`. |
+| 006 | Now line date label in NowLine.vue | Label rendered but invisible — behind the TimeMarkersBack fixed header bar (`z-30`, `position: fixed`). Different CSS stacking context. | Label was in `#timeline` (`relative overflow-auto`), behind the `fixed` header. Diagnosed and moved to TimeMarkersBack.vue. |
+| 006 | Now line date label in TimeMarkersBack.vue | Label compiled and rendered in DOM but still not visible visually | Positioning or reactivity issue — `nowLabelPos = nowLineLeft - viewport.left` may evaluate to 0 or NaN on first render due to `viewport.width = 0` before user interaction. |
