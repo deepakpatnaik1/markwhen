@@ -10,7 +10,7 @@ const markersStore = useMarkersStore();
 
 <template>
   <div
-    class="font-mono text-sm fixed right-8 top-8 dark:bg-red-700 bg-red-200 flex flex-col"
+    class="font-mono text-sm fixed right-8 top-8 bg-th-ref-line flex flex-col"
   >
     <table>
       <tbody>

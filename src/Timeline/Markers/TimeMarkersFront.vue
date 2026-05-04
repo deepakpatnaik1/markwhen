@@ -61,7 +61,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 <template>
   <div class="fixed inset-0 pointer-events-none">
     <div
-      class="flex relative bg-white/95 dark:bg-zinc-800 dark:border-zinc-600 border-b"
+      class="flex relative bg-th-surface/95 border-th-border border-b"
     >
       <!-- <SquashBars /> -->
       <div
@@ -69,7 +69,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
         :key="timeMarker.ts"
         class="flex-shrink-0 h-full flex flex-col"
         :class="{
-          'border-l border-zinc-200 dark:border-zinc-500':
+          'border-l border-th-border':
             opacity(timeMarker) >= 1,
         }"
         :style="{
@@ -84,7 +84,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
       >
         <h6
           :class="{ 'font-bold': isHovering(timeMarker) }"
-          class="timeMarkerTitle text-sm whitespace-nowrap dark:text-white text-black pl-1"
+          class="timeMarkerTitle text-sm whitespace-nowrap text-th-text pl-1"
           :style="{
             opacity: isHovering(timeMarker) ? 1 : opacity(timeMarker),
           }"
@@ -112,10 +112,6 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 <style scoped>
 .timeMarkerShader {
   z-index: -1;
-  background: linear-gradient(to bottom, #ffffff, 85%, #ffffff00);
-}
-
-.dark .timeMarkerShader {
-  background: linear-gradient(to bottom, rgb(51, 65, 85), 85%, #38404700);
+  background: linear-gradient(to bottom, rgb(var(--color-header-gradient-start)), 85%, rgba(var(--color-header-gradient-end)));
 }
 </style>

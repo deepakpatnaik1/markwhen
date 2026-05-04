@@ -81,7 +81,7 @@ const titleStyle = computed(() => {
 const titleClass = computed(() => {
   if (timelineStore.mode === "gantt") {
     if (props.hovering) {
-      return "border dark:border-gray-400 border-black";
+      return "border border-th-border-strong";
     } else {
       return "border border-transparent";
     }

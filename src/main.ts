@@ -3,6 +3,10 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import "./assets/main.css";
 import router from "@/router/router"
+import { applyTheme } from "./config/palette";
+
+// Apply default (light) theme before mount to prevent flash
+applyTheme(false);
 
 const app = createApp(App);
 const pinia = createPinia();

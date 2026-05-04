@@ -2,6 +2,7 @@
 import type { DateTime } from "luxon";
 import { computed } from "vue";
 import { useTimelineStore } from "../timelineStore";
+import { theme } from "@/config/palette";
 import { granularities } from "../utilities/DateTimeDisplay";
 import {
   floorDateTime,
@@ -87,7 +88,7 @@ const textForMarker = (dt: DateTime) =>
 <template>
   <template v-for="marker in markers">
     <path
-      :stroke="`rgba(${dark ? '200, 200, 200' : '100, 100, 100'}, 0.15)`"
+      :stroke="`rgba(${dark ? theme.dark.svgMarkerStroke : theme.light.svgMarkerStroke}, 0.15)`"
       :stroke-dasharray="`${heightUnit / 5},${heightUnit / 10}`"
       :stroke-width="heightUnit / 10"
       :d="`M ${x(marker)} ${startY} L ${x(marker)} ${bottomY}`"

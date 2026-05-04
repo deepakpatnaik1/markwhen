@@ -34,12 +34,12 @@ const click = () => {
 <template>
   <button
     @click="click"
-    class="p-1 flex flex-row items-center hover:bg-zinc-200 transition dark:border-gray-900 dark:hover:bg-zinc-600 dark:hover:text-gray-100 text-sm lg:text-base font-bold relative shrink-0"
+    class="p-1 flex flex-row items-center hover:bg-th-hover-bg transition text-sm lg:text-base font-bold relative shrink-0"
     v-on="events"
     @mousedown.stop=""
     @touchstart.stop=""
     :class="{
-      'text-indigo-600 outline-2 outline outline-indigo-600 dark:text-indigo-400 dark:outline-indigo-400':
+      'text-th-accent outline-2 outline outline-th-accent':
         selected,
     }"
   >

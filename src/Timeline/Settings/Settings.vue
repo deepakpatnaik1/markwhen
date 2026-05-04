@@ -53,14 +53,14 @@ const goToNow = () => timelineStore.goToNow();
 
 <template>
   <div
-    class="fixed hover:text-zinc-700 dark:text-zinc-400 text-zinc-500 dark:hover:text-zinc-300"
+    class="fixed hover:text-th-text-hover text-th-text-muted"
     :style="`left: ${styleLeftInset}px; bottom: 0rem; right: 0;`"
   >
     <div
       class="flex flex-row-items-center overflow-scroll noScrollBar relative"
     >
       <div class="flex flex-row gap-2 pt-16">
-        <div class="dark:bg-zinc-800 bg-white flex flex-row gap-2 px-2">
+        <div class="bg-th-surface flex flex-row gap-2 px-2">
           <div
             class="flex flex row overflow-visible p-[2px] pointer-events-auto"
             style="grid-area: gantt"
@@ -166,7 +166,7 @@ const goToNow = () => timelineStore.goToNow();
               v-if="markwhenStore.showEditButton"
               :href="markwhenStore.editorLink"
               target="_blank"
-              class="h-6 flex flex-row items-center rounded hover:bg-zinc-200 transition dark:border-gray-900 dark:hover:bg-gray-900 dark:hover:text-gray-100 px-1 text-sm lg:text-base font-bold relative"
+              class="h-6 flex flex-row items-center rounded hover:bg-th-hover-bg transition px-1 text-sm lg:text-base font-bold relative"
               ><svg
                 class="h-4 w-4 md:mr-1"
                 focusable="false"

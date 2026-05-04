@@ -97,6 +97,11 @@ Boss tests in browser.
 - Never modify source code outside the plan.
 - Never report "done" without visually verifying in the browser.
 - ARCHITECTURE.md is the source of truth for blast radius. If it's wrong, fix it first — that's a REQ too.
+- No hacks. If the clean path doesn't work, diagnose why and fix it properly. A workaround that sidesteps the problem is not a solution — it's a deferral.
+
+## Design Principles
+
+- **Centralize into config.** Where values can be centralized into a config file, they must be. Color palettes, font families and sizes, spacing and sizing constants, URLs and endpoints, feature flags, animation durations and easing, z-index layers, breakpoints, text strings and labels. If a value appears in more than one file, or if changing it requires searching the codebase, it belongs in a config file. One place to change, one place to verify.
 
 ---
 
@@ -104,7 +109,7 @@ Boss tests in browser.
 
 | REQ | Description | Blast Radius | Plan | Status | Branch | Notes |
 |-----|-------------|--------------|------|--------|--------|-------|
-| 001 | Render upstream fork in Safari | — | Open dist/index.html | FAIL | — | Blank screen. Two known issues missed in review. |
+| 001 | Render fork with Tom Sawyer sample data | markwhenStore.ts (lines 123-127), useLpc.ts (line 17) | Fix parsed-array normalization in both CLI state entry points. Build, render via scripts/render.mjs, open in Safari. | SUCCESS | req-001-render-tom-sawyer | Merged to main. Pushed to GitHub. |
 
 ---
 

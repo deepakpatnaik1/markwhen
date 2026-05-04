@@ -21,11 +21,13 @@ import { useNodeStore } from "../useNodeStore";
 import { DateTime } from "luxon";
 import { granularities } from "../utilities/DateTimeDisplay";
 import type { Sourced } from "@/Markwhen/useLpc";
+import { theme } from "@/config/palette";
 
 const markersStore = useMarkersStore();
 const timelineStore = useTimelineStore();
 const { getWeekday } = useWeekdayCache();
 const dark = computed(() => timelineStore.darkMode);
+const colors = computed(() => dark.value ? theme.dark : theme.light);
 const nodeStore = useNodeStore();
 
 const leftMargin = viewportLeftMarginPixels;
@@ -42,9 +44,7 @@ const backgroundColor = computed(() => (tm: TimeMarker) => {
       // @ts-ignore
       weekday.weekday === 7
     ) {
-      return dark.value
-        ? `rgba(113, 113, 122, ${a})`
-        : `rgba(161, 161, 170, ${a})`;
+      return `rgba(${colors.value.gridBorder}, ${a})`;
     }
   }
   return "unset";
@@ -64,7 +64,7 @@ const alpha = computed(
 
 const borderColor = computed(() => (tm: TimeMarker) => {
   const a = hovering.value(tm) ? 1 : (alpha.value(tm) - 0.3) * 2;
-  return dark.value ? `rgba(82, 82, 91, ${a})` : `rgba(200, 200, 200, ${a})`;
+  return `rgba(${colors.value.gridLine}, ${a})`;
 });
 
 const eras = computed(() => {
@@ -141,7 +141,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 
 <template>
   <div
-    class="fixed top-0 left-0 right-0 h-6 bg-white/95 dark:bg-zinc-800/95 z-30 border-b dark:border-zinc-700"
+    class="fixed top-0 left-0 right-0 h-6 bg-th-surface/95 z-30 border-b border-th-border"
   ></div>
   <div
     v-for="timeMarker in markersStore.markers"
@@ -163,13 +163,13 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
     <div
       class="sticky top-0 -m-px"
       :class="{
-        'font-bold z-50 dark:border-zinc-400 border-zinc-500':
+        'font-bold z-50 border-th-border-strong':
           isHovering(timeMarker),
-        'z-40 dark:border-zinc-600': !isHovering(timeMarker),
+        'z-40 border-th-border': !isHovering(timeMarker),
       }"
     >
       <h6
-        class="timeMarkerTitle text-sm whitespace-nowrap dark:text-white text-black pl-1 border-l border-inherit"
+        class="timeMarkerTitle text-sm whitespace-nowrap text-th-text pl-1 border-l border-inherit"
         :style="{
           opacity: isHovering(timeMarker) ? 1 : opacity(timeMarker),
         }"
@@ -178,7 +178,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
       </h6>
       <div v-if="currentDateResolution <= 6" class="flex flex-row">
         <h6
-          class="whitespace-nowrap text-xs font-bold dark:bg-zinc-800 bg-white border-l p-1 dark:border-zinc-400 border-zinc-500"
+          class="whitespace-nowrap text-xs font-bold bg-th-surface border-l p-1 border-th-border-strong"
           v-if="isHovering(timeMarker)"
         >
           {{ hoveringText(timeMarker) }}
@@ -192,7 +192,7 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
     class="absolute top-0 bottom-0 h-full border-l border-r transition"
     :class="
       !era.backgroundColor
-        ? `bg-gray-300/50 dark:bg-gray-300/10 border-gray-500/50`
+        ? `bg-th-section-bg/50 border-th-section-border/50`
         : ''
     "
     :style="{
@@ -208,10 +208,6 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
 <style>
 .timeMarkerShader {
   z-index: -1;
-  background: linear-gradient(to bottom, #ffffff, 85%, #ffffff00);
-}
-
-.dark .timeMarkerShader {
-  background: linear-gradient(to bottom, rgb(51, 65, 85), 85%, #38404700);
+  background: linear-gradient(to bottom, rgb(var(--color-header-gradient-start)), 85%, rgba(var(--color-header-gradient-end)));
 }
 </style>

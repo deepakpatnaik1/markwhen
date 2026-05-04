@@ -12,7 +12,7 @@ const reference = computed(() => {
 
 <template>
   <div
-    class="absolute dark:bg-red-400 bg-red-300 top-0"
+    class="absolute bg-th-ref-line top-0"
     :style="`width: 1px; left: ${reference}px; height: max(100vh, 100%);`"
   ></div>
 </template>

@@ -61,16 +61,16 @@ const styleObject = computed(() => {
 
 <template>
   <div
-    class="absolute h-full flex flex-row items-center dark:text-gray-400 pointer-events-none"
+    class="absolute h-full flex flex-row items-center text-th-text-muted pointer-events-none"
     :class="{
-      'dark:bg-opacity-30 bg-opacity-20': hovering || (!color && isDetailEvent),
-      'dark:bg-opacity-20 bg-opacity-10': !hovering && !isDeep,
+      'bg-opacity-20': hovering || (!color && isDetailEvent),
+      'bg-opacity-10': !hovering && !isDeep,
       'border-t border-b': !color,
       'border-l border-r': isGroupStyle,
-      'dark:border-gray-900/25 border-gray-400/25': !color && isDeep,
-      'bg-gray-400 dark:bg-gray-600': !color && !isDeep,
-      'dark:border-gray-400/25 border-gray-400/25': !color && !hovering,
-      'dark:border-gray-400 border-gray-600':
+      'border-th-surface-dark/25': !color && isDeep,
+      'bg-th-section-bg': !color && !isDeep,
+      'border-th-border-medium/25': !color && !hovering,
+      'border-th-section-border':
         !color && (hovering || isDetailEvent),
       'ml-0 w-full': !isGroupStyle,
       'rounded-[14px]': isGroupStyle,

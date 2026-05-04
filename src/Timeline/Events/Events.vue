@@ -57,7 +57,7 @@ const mousemove = (e: MouseEvent) => {
     <HoverDateVue></HoverDateVue> -->
   <div
     v-if="timelineStore.mode === 'gantt'"
-    class="sticky left-0 relative flex flex-col bg-white dark:bg-zinc-800 top-0 bottom-0 z-[2] h-full"
+    class="sticky left-0 relative flex flex-col bg-th-surface top-0 bottom-0 z-[2] h-full"
     :style="`width: ${currentWidth}px;`"
   ></div>
   <template

@@ -23,6 +23,7 @@ import Settings from "./Settings/Settings.vue";
 import ReferenceDateVue from "./Events/ReferenceDate.vue";
 import NowLine from "./Events/NowLine.vue";
 import { useDoubleTap } from "./composables/useDoubleTap";
+import { applyTheme } from "@/config/palette";
 
 const timelineStore = useTimelineStore();
 const markwhenStore = useMarkwhenStore();
@@ -233,6 +234,9 @@ onMounted(() => {
 });
 
 const pointerdown = useDoubleTap(setViewportDateInterval);
+
+// Sync CSS custom properties with dark mode state
+watch(() => timelineStore.darkMode, (isDark) => applyTheme(isDark), { immediate: true });
 </script>
 
 <template>
@@ -242,7 +246,7 @@ const pointerdown = useDoubleTap(setViewportDateInterval);
   >
     <div
       id="timeline"
-      class="relative overflow-auto w-full dark:text-white text-gray-900 bg-white dark:bg-zinc-800 noScrollBar"
+      class="relative overflow-auto w-full text-th-text bg-th-surface noScrollBar"
       ref="timelineElement"
       @scroll="scroll"
       @gestureChange="scroll"

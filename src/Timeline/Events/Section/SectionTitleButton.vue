@@ -33,9 +33,9 @@ const click = (e: MouseEvent) => emit("click", e);
 <template>
   <button
     ref="button"
-    class="flex flex-row items-center dark:bg-opacity-60 bg-opacity-50"
+    class="flex flex-row items-center bg-opacity-50"
     :class="{
-      'bg-gray-500 dark:bg-gray-900': !color,
+      'bg-th-section-bg': !color,
       'rounded-full px-2 py-px': groupStyle === 'group',
       'px-1': groupStyle !== 'group',
     }"

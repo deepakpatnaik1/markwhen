@@ -1,33 +1,10 @@
 import { RangeType, type Timeline } from "@markwhen/parser";
 import { computed } from "vue";
+import { TAG_COLORS, TAG_COLORS_HUMAN } from "@/config/palette";
 
-// RGB, so we can use rgba(... ) with a different alpha where we need it
-export const COLORS = [
-  "22, 163, 76",
-  "2, 132, 199",
-  "212, 50, 56",
-  "242, 202, 45",
-  "80, 73, 229",
-  "145, 57, 234",
-  "214, 45, 123",
-  "234, 88, 11",
-  "168, 162, 157",
-  "255, 255, 255",
-  "0, 0, 0",
-];
-export const HUMAN_COLORS = [
-  "green",
-  "blue",
-  "red",
-  "yellow",
-  "indigo",
-  "purple",
-  "pink",
-  "orange",
-  "gray",
-  "white",
-  "black",
-];
+// Re-export for backward compatibility
+export const COLORS = TAG_COLORS;
+export const HUMAN_COLORS = TAG_COLORS_HUMAN;
 
 export function hexToRgb(hex: string): string | undefined {
   hex = hex.replace("#", "").replace(")", "");

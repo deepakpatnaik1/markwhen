@@ -21,16 +21,16 @@ const timelineStore = useTimelineStore();
 <template>
   <div class="eventTitle whitespace-nowrap font-semibold text-sm py-1 flex flex-row">
     <div
-      class="supplementalIndicators flex flex-row dark:text-gray-300 text-gray-500 gap-1 items-center justify-center pl-2"
+      class="supplementalIndicators flex flex-row text-th-text-muted gap-1 items-center justify-center pl-2"
     >
       <!-- <button
         @click="emits('toggleMeta', $event)"
         class="rounded px-px pointer-events-auto border"
         v-if="hasMeta"
         :class="{
-          'bg-white dark:bg-gray-900 border-indigo-500/75': showingMeta,
+          'bg-th-event-detail-bg border-th-accent/75': showingMeta,
           shadow: isHovering || showingMeta,
-          'dark:text-gray-300 dark:bg-gray-800 text-gray-500 bg-gray-300 border-transparent':
+          'text-th-text-muted bg-th-surface-alt border-transparent':
             !showingMeta,
         }"
       >

@@ -211,12 +211,12 @@ const classObj = computed(() => {
   return isGantt.value
     ? {
         // border: true,
-        "dark:bg-gray-900 bg-white": props.isDetailEvent,
-        "dark:border-gray-400 border-black":
+        "bg-th-event-detail-bg": props.isDetailEvent,
+        "border-th-border-strong":
           props.hovering && !props.isDetailEvent,
-        "dark:border-indigo-600 border-indigo-500": props.isDetailEvent,
+        "border-th-accent": props.isDetailEvent,
         "border-transparent": !props.hovering && !props.isDetailEvent,
-        "dark:bg-zinc-400/10  bg-zinc-400/10": props.hovering,
+        "bg-th-hover-bg/10": props.hovering,
       }
     : {
         "pointer-events-none": isCollapsed.value,
@@ -227,12 +227,11 @@ const barAndTitleClass = computed(() => {
   return isGantt.value
     ? {}
     : {
-        "dark:bg-gray-800 bg-white shadow-lg":
-          isHovering.value && hasMeta.value,
-        "dark:bg-gray-900 bg-white shadow-lg": props.isDetailEvent,
-        "ring-1 dark:ring-gray-400 ring-black":
+        "bg-th-event-detail-bg shadow-lg":
+          (isHovering.value && hasMeta.value) || props.isDetailEvent,
+        "ring-1 ring-th-border-strong":
           props.hovering && !props.isDetailEvent,
-        "ring-1 dark:ring-indigo-600 ring-indigo-500": props.isDetailEvent,
+        "ring-1 ring-th-accent": props.isDetailEvent,
         "pointer-events-auto cursor-pointer": !isCollapsed.value,
       };
 });
@@ -320,7 +319,7 @@ const ganttTitleStyle = computed(() => {
             "
             :class="
               recurrence
-                ? 'dark:text-orange-300 text-orange-500'
+                ? 'text-th-accent-light'
                 : 'text-gray-400'
             "
           >
@@ -356,15 +355,15 @@ const ganttTitleStyle = computed(() => {
       <div
         class="sticky left-0 z-10 h-full"
         :class="{
-          'dark:bg-zinc-400/10 bg-zinc-400/25': hovering,
-          'bg-white dark:bg-zinc-800': !hovering,
+          'bg-th-hover-bg/10': hovering,
+          'bg-th-surface': !hovering,
         }"
       >
         <div
           class="h-full pointer-events-auto"
           :class="{
             'border-transparent': !hovering && !isDetailEvent,
-            'dark:border-indigo-600 border-indigo-600': isDetailEvent,
+            'border-th-accent': isDetailEvent,
           }"
           style="
             text-overflow: ellipsis;
