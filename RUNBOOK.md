@@ -63,13 +63,16 @@ If rejected: revise plan, resubmit. Do not proceed.
 ### 2.5 Branch
 Branch off main: `git checkout -b req-NNN-short-description`
 
-### 2.6 Implement
+### 2.6 Commit Clean State
+Commit the current state (plan in REQ LOG, any RUNBOOK updates) before touching code. This is your rollback point. If the implementation fails, `git reset --hard` to this commit gives you a clean state to start the next attempt from.
+
+### 2.7 Implement
 Implement exactly to plan. No deviations. No "while I'm here" fixes. If the plan is wrong, stop and go back to 2.3.
 
-### 2.7 Visual Verification
+### 2.8 Visual Verification
 Open the rendered output in a browser. Confirm it works. "Build succeeded" is not "it works."
 
-### 2.8 Gate 2 — QA Reviews Code
+### 2.9 Gate 2 — QA Reviews Code
 QA verifies:
 - Implementation matches the plan exactly
 - No unplanned changes
@@ -84,13 +87,13 @@ QA verifies:
 
 If rejected: fix and resubmit. Do not proceed.
 
-### 2.9 Commit and Push
+### 2.10 Commit and Push
 Commit message: `[REQ-NNN] short description`. Push branch.
 
-### 2.10 Boss Tests
+### 2.11 Boss Tests
 Boss tests in browser.
 
-### 2.11 Record Outcome
+### 2.12 Record Outcome
 - **SUCCESS** — merge branch to main, update REQ LOG
 - **FAIL** — do NOT attempt a quick fix. Record the failure in FAILED ATTEMPTS. Revert the branch. The fix becomes a new REQ starting at 2.1.
 
