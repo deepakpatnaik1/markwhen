@@ -23,21 +23,36 @@ style: section
 
 ## Cernere
 
-2026-04-28: S1 Model Best Practices Research (Done) #workbench
+2026-04-28: S1 Model Best Practices Research #workbench
+- [x] Research model best practices across OpenRouter providers
+- [x] Document findings and recommendations
+- [x] Deploy as skills #148 and #149
+
 2026-04-28/2026-05-07: S2 Prompt Hardening #workbench
-Director + Cutter books done (Boss/Klara). Actress books in progress. Critical path item.
+- [x] Director books — 14 modular files (Boss/Klara)
+- [x] Cutter books — 7 modules (Quinn)
+- [ ] Actress books — 5 modules (Klara/Boss)
+- [ ] Vera QA pass on completed books
 
 2026-05-05/2026-05-07: S3 Workbench Presentation #workbench
-Hana — visual/UX. Not on critical path.
+- [ ] Build Cernere workbench UI
+- [ ] Integrate with tournament engine
+- [ ] Boss visual review and feedback
 
 2026-05-07/2026-05-08: S4 Tournament Runbook #workbench
-Hana — refresh from Vast.ai to OpenRouter. Depends on S2.
+- [x] Initial runbook for Vast.ai infrastructure
+- [ ] Refresh for OpenRouter pivot
+- [ ] Confirm all 4 models live on OpenRouter
 
 2026-05-08/2026-05-10: S5 Tournament Execution — 32 Runs #workbench
-Wyatt executes. 4 conditions x 8 TCs. Blocked on S2+S4.
+- [ ] Set up 4 conditions (C1-C4) on OpenRouter
+- [ ] Execute 8 test cases per condition
+- [ ] Collect raw outputs for scoring
 
 2026-05-10/2026-05-11: S6 Tournament Scoring #workbench
-Eva scores against rubric. Director-quality dimension needed.
+- [ ] Update Eva's rubric with Director-quality dimension
+- [ ] Score 32 runs across all conditions
+- [ ] Produce final model selection analysis
 
 # Product #product
 style: section

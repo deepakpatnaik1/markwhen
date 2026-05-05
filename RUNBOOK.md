@@ -138,6 +138,7 @@ Boss tests in browser.
 | 016 | Group Cernere activities in visual group, extend background to cover titles | `sample-data/honeybloom.mw` (data), `Section.vue` (text overflow measurement) | Replace `group`/`endGroup` (dead syntax) with `## Cernere` subsection header. Calculate max text overflow per child event using canvas measureText and add to group fullWidth. | SUCCESS | — | Gate 2 approved by Rio. |
 | 017 | Collapsed group label on LEFT side of bar | SectionHeader.vue line 99 — collapsed group positioning | Change from `marginLeft: calc(width + 0.75rem)` to `transform: translateX(calc(-100% - 16px))` so label appears left of bar with 16px gap. | SUCCESS | — | Gate 2 approved by Rio. |
 | 018 | Collapse all should skip top-level swimlanes | collapseStore.ts line 81 — add style check | Add `if (eventy.style === "section") continue;` guard in `collapseAll()` to skip sections and only collapse subgroups. | SUCCESS | — | Gate 2 approved by Rio. |
+| 019 | Replace text progress with checklist-based progress bars on Cernere events | `sample-data/honeybloom.mw` — update S1-S6 event descriptions with checklist items | For each Cernere event, replace "(Done)" text and descriptions with `- [x]`/`- [ ]` checklist items reflecting actual status. Remove demo events. Data-only. | SUCCESS | — | Gate 2 approved by Rio. |
 
 ---
 
