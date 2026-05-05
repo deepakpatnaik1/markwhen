@@ -7,7 +7,7 @@ const { taskNumerator, taskDenominator, completed } = defineProps<{
 </script>
 
 <template>
-  <div class="text-xs font-mono font-bold flex flex-row items-center">
+  <div class="font-mono flex flex-row items-center" style="font-size: 10px;">
     <svg
       class="h-4 w-4 mr-[2px]"
       focusable="false"

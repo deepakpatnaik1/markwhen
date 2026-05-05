@@ -84,9 +84,10 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
       >
         <h6
           :class="{ 'font-bold': isHovering(timeMarker) }"
-          class="timeMarkerTitle text-sm whitespace-nowrap text-th-text pl-1"
+          class="timeMarkerTitle whitespace-nowrap text-th-text pl-1"
           :style="{
             opacity: isHovering(timeMarker) ? 1 : opacity(timeMarker),
+            fontSize: '11px',
           }"
         >
           {{ text(timeMarker) }}
@@ -96,12 +97,13 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
           class="flex flex-row pl-1"
         >
           <h6
-            class="whitespace-nowrap text-xs font-bold"
+            class="whitespace-nowrap"
+            style="font-size: 11px;"
             v-if="isHovering(timeMarker)"
           >
             {{ hoveringText(timeMarker) }}
           </h6>
-          <h6 class="whitespace-nowrap text-xs font-bold">&nbsp;</h6>
+            <h6 class="whitespace-nowrap" style="font-size: 11px;">&nbsp;</h6>
         </div>
       </div>
     </div>

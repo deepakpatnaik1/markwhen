@@ -18,8 +18,8 @@ const props = withDefaults(
 <template>
   <transition>
     <div
-      class="hintRight absolute -right-2 top-0 bottom-0 whitespace-nowrap flex items-center justify-center ml-2 bg-indigo-600 shadow-lg rounded px-2 font-bold text-white pointer-events-none"
-      style="transform: translateX(100%)"
+      class="hintRight absolute -right-2 top-0 bottom-0 whitespace-nowrap flex items-center justify-center ml-2 bg-indigo-600 shadow-lg rounded px-2 text-white pointer-events-none"
+      style="transform: translateX(100%); font-size: 10px;"
       v-if="hovering && hoverPosition === 'right'"
     >
       <div class="z-10">
@@ -30,10 +30,11 @@ const props = withDefaults(
       ></div>
     </div>
     <div
-      class="hintTop absolute -top-1 whitespace-nowrap flex items-center justify-center mb-2 bg-indigo-600 shadow-lg rounded px-2 font-bold text-white pointer-events-none"
+      class="hintTop absolute -top-1 whitespace-nowrap flex items-center justify-center mb-2 bg-indigo-600 shadow-lg rounded px-2 text-white pointer-events-none"
       :style="{
         transform: `translateY(-100%)`,
         left: `${left ? left : 2}px`,
+        fontSize: '10px',
       }"
       v-else-if="hovering && hoverPosition === 'top'"
     >

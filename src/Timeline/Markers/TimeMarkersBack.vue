@@ -163,8 +163,8 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
     ></div>
     <div
       v-if="!timelineStore.hideNowLine"
-      class="fixed pointer-events-none text-xs font-bold whitespace-nowrap text-th-text bg-th-surface/90 pl-2 pr-1 py-0.5 z-30 rounded"
-      :style="`top: 24px; left: ${nowLabelPos}px`"
+      class="fixed pointer-events-none whitespace-nowrap text-th-text bg-th-surface/90 pl-2 pr-1 py-0.5 z-30 rounded"
+      :style="`top: 24px; left: ${nowLabelPos}px; font-size: 11px;`"
     >
       {{ nowLabel }}
     </div>
@@ -194,21 +194,23 @@ const hoveringText = computed(() => (timeMarker: TimeMarker) => {
       }"
     >
       <h6
-        class="timeMarkerTitle text-sm whitespace-nowrap text-th-text pl-1 border-l border-inherit"
+        class="timeMarkerTitle whitespace-nowrap text-th-text pl-1 border-l border-inherit"
         :style="{
           opacity: isHovering(timeMarker) ? 1 : opacity(timeMarker),
+          fontSize: '11px',
         }"
       >
         {{ text(timeMarker) }}
       </h6>
       <div v-if="currentDateResolution <= 6" class="flex flex-row">
         <h6
-          class="whitespace-nowrap text-xs font-bold bg-th-surface border-l p-1 border-th-border-strong mt-px"
+          class="whitespace-nowrap bg-th-surface border-l p-1 border-th-border-strong mt-px"
+          style="font-size: 11px;"
           v-if="isHovering(timeMarker)"
         >
           {{ hoveringText(timeMarker) }}
         </h6>
-        <h6 class="whitespace-nowrap text-xs font-bold">&nbsp;</h6>
+          <h6 class="whitespace-nowrap" style="font-size: 11px;">&nbsp;</h6>
       </div>
     </div>
   </div>

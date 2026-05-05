@@ -46,13 +46,14 @@ const click = (e: MouseEvent) => emit("click", e);
     <DepthIndicator :depth="path.split(',').length" />
     <div class="flex flex-row flex-grow items-center justify-center">
       <span
-        class="eventTitle text-sm font-semibold whitespace-nowrap"
+        class="eventTitle whitespace-nowrap"
         v-if="titleHtml"
         v-html="titleHtml"
+        style="font-size: 12px;"
       >
       </span>
       <span
-        class="eventTitle text-sm font-semibold whitespace-nowrap ml-1"
+        class="eventTitle whitespace-nowrap ml-1" style="font-size: 10px;"
         v-if="!expanded"
         >({{ numChildren }})</span
       >
