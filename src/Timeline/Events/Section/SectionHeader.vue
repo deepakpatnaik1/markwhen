@@ -97,7 +97,7 @@ const childStyleObj = computed(() => {
       : "";
   }
   if (props.groupStyle === "group" && isCollapsed.value) {
-    obj.marginLeft = `calc(${width.value}px + 0.75rem)`;
+    obj.transform = "translateX(calc(-100% - 16px))";
   } else {
     obj.marginLeft = 0;
   }

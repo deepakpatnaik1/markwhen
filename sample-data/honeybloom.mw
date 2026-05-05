@@ -21,7 +21,7 @@ style: section
 # Workbench #workbench
 style: section
 
-group Cernere — Chat Model Tournament (OpenRouter)
+## Cernere
 
 2026-04-28: S1 Model Best Practices Research (Done) #workbench
 2026-04-28/2026-05-07: S2 Prompt Hardening #workbench
@@ -38,8 +38,6 @@ Wyatt executes. 4 conditions x 8 TCs. Blocked on S2+S4.
 
 2026-05-10/2026-05-11: S6 Tournament Scoring #workbench
 Eva scores against rubric. Director-quality dimension needed.
-
-endGroup
 
 # Product #product
 style: section

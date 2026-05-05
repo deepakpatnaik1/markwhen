@@ -76,14 +76,15 @@ const fullWidth = computed(() => {
     sectionRange.value.fromDateTime,
     sectionRange.value.toDateTime
   );
-  if (groupStyle.value === "group" && props.eventy.children) {
+  if (props.eventy.style !== "section" && props.eventy.children) {
     let maxOverflow = 0;
     for (const child of props.eventy.children) {
       if (!isEvent(child)) continue;
       const event = child as Sourced<Event>;
       const eventRange = toDateRange(event.dateRangeIso);
       if (!eventRange) continue;
-      const textPx = measureTextWidth(event.firstLine?.restTrimmed || "", "12px");
+      const fullText = ((event.firstLine?.datePart || "") + " " + (event.firstLine?.restTrimmed || "")).trim();
+      const textPx = measureTextWidth(fullText, "12px");
       const barRight = scalelessDistanceBetweenDates(
         timelineStore.baselineLeftmostDate,
         eventRange.toDateTime

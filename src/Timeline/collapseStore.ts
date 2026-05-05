@@ -78,6 +78,7 @@ export const useCollapseStore = defineStore("collapse", () => {
   const collapseAll = () => {
     for (const { path, eventy } of iter(timelineStore.transformedEvents)) {
       if (!isEvent(eventy)) {
+        if (eventy.style === "section") continue;
         setCollapsed(path, true);
       }
     }
