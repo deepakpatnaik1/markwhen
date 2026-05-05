@@ -19,7 +19,7 @@ const timelineStore = useTimelineStore();
 </script>
 
 <template>
-  <div class="eventTitle whitespace-nowrap font-semibold text-sm py-1 flex flex-row">
+  <div class="eventTitle font-semibold py-1 flex flex-row" style="font-family: Menlo, monospace; font-size: 12px;">
     <div
       class="supplementalIndicators flex flex-row text-th-text-muted gap-1 items-center justify-center pl-2"
     >
@@ -82,7 +82,7 @@ const timelineStore = useTimelineStore();
           'pointer-events-auto': titleHtml.includes('underline'),
         }"
       ></span>
-      <span v-if="hasSupplemental">...</span>
+
     </p>
   </div>
 </template>

@@ -313,7 +313,7 @@ const ganttTitleStyle = computed(() => {
         />
         <Fade>
           <p
-            class="eventDate text-sm whitespace-nowrap py-1"
+            class="eventDate py-1" style="font-family: Menlo, monospace; font-size: 12px;"
             v-show="
               !isCollapsed && timelineStore.dateTimeDisplay === 'original'
             "
@@ -366,9 +366,6 @@ const ganttTitleStyle = computed(() => {
             'border-th-accent': isDetailEvent,
           }"
           style="
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
             cursor: pointer;
           "
           :style="ganttTitleStyle"
