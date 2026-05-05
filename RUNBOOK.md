@@ -109,6 +109,10 @@ Boss tests in browser.
 - No hacks. If the clean path doesn't work, diagnose why and fix it properly. A workaround that sidesteps the problem is not a solution — it's a deferral.
 - When the clean path fails, STOP. Do not attempt a fix. Diagnose the root cause. Bring the diagnosis to QA before writing any code. The diagnosis is a finding, not a code change — it informs the next plan.
 - Work in large huddles. When failure patterns start to repeat, recruit extra QA eyes from colleagues in the huddle. Self-appointment is encouraged — anyone who spots a blind spot owns flagging it.
+- **Gate 1 is non-negotiable.** If Boss gives a REQ directly to the principal (e.g., in their tab instead of the huddle), the principal acknowledges and posts a Gate 1 submission to QA before touching any code. No exceptions. The eagerness to execute is a universal AI tendency — the gate catches it regardless of which model is underneath.
+- **Never bypass QA by working off-huddle.** Boss must not work directly with the principal without QA in the loop. "A few quick changes" is exactly when failure patterns strike. The QA gate is the protection; removing it removes the protection.
+- **Never delete the rendered output file.** The rendered HTML is an ephemeral build artifact — overwrite it in place on every render. Boss's browser points at it. Deleting it blanks the browser.
+- **Investigate before assuming.** When a feature appears to exist in source code, verify it works by checking what the parser actually produces — not by reading the code and guessing. Read the regex, check the parsed output, test with console.log. Source code is not proof of functionality.
 
 ## Design Principles
 
